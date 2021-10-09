@@ -74,7 +74,7 @@ class Processe:
         sql = """SELECT ID FROM connect WHERE username = '{}'""".format(username)
         print(sql)
         self.conn.execute(sql)
-        row = self.conn.fetchall()[0]
+        row = self.conn.fetchone()[0]
         print(row)
         return row
 
