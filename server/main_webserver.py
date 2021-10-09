@@ -49,7 +49,9 @@ def info(name):
     else:
         datei = Processe().random_choose_profile()
         Processe().set_ID_to_username(str(name),datei["ID"])
-        return "Profiel geändert"
+        datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name)))
+        datei.update({"token":name})
+        return json.dumps(datei, indent = 4)
 
 if __name__ == "__main__":
     app.run(debug=True)
