@@ -1,0 +1,15 @@
+body {
+    width: auto;
+    height: auto;
+}
+a {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 20px;
+    background: #d9d9d9;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }

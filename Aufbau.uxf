@@ -1,16 +1,16 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>140</x><y>270</y><w>210</w><h>190</h></coordinates><panel_attributes>Webserver
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>190</x><y>250</y><w>210</w><h>190</h></coordinates><panel_attributes>Webserver
 --
 login()
-regestrieren()
+registrieren()
 loginout()
 
 anfrage(Website, Account, 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>380</x><y>20</y><w>100</w><h>30</h></coordinates><panel_attributes>data.db</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>270</y><w>210</w><h>190</h></coordinates><panel_attributes>Processe
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>100</y><w>210</w><h>70</h></coordinates><panel_attributes>Addon
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>0</y><w>100</w><h>30</h></coordinates><panel_attributes>data.db</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>250</y><w>210</w><h>190</h></coordinates><panel_attributes>Processe
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>80</y><w>210</w><h>70</h></coordinates><panel_attributes>Addon
 --
 Aufgaben:
-account login, registrien
+account login, registrieren
 identität (neue)
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>80</x><y>160</y><w>120</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-befehl</panel_attributes><additional_attributes>100;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>40</y><w>160</w><h>250</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>140;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>380</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>140</y><w>120</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+befehl</panel_attributes><additional_attributes>100;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>20</y><w>160</w><h>250</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>140;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>360</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element></diagram>
