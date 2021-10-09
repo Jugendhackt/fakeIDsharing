@@ -10,6 +10,12 @@
         "scripts": ["background.js"],
         "persistent": false
     },
+    "icons": {
+        "16": "/img/logo16.ico",
+        "32": "/img/logo32.ico",
+        "48": "/img/logo48.ico",
+        "128": "/img/logo128.ico"
+    },
     "permissions": [
         "tabs",
         "background"
