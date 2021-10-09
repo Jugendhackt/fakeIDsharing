@@ -3,6 +3,7 @@ from flask_cors import CORS, cross_origin
 from flask_login import LoginManager, login_user, login_required, current_user
 from Auth import auth
 import json
+from main import Processe
 
 app = Flask(__name__)
 cors = CORS(app)
