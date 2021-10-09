@@ -1,7 +1,7 @@
 <diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>190</x><y>250</y><w>210</w><h>190</h></coordinates><panel_attributes>Webserver
 --
 login()
-regestrieren()
+registrieren()
 loginout()
 
 anfrage(Website, Account, 
@@ -9,7 +9,7 @@ anfrage(Website, Account,
 --</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>80</y><w>210</w><h>70</h></coordinates><panel_attributes>Addon
 --
 Aufgaben:
-account login, registrien
+account login, registrieren
 identität (neue)
 
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>140</y><w>120</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
