@@ -21,12 +21,9 @@ def login():
     user = request.form.get('username')
     if Processe().login_check(str(user),str(password)):
         return json.dumps({"token":str(user)}, indent = 4)
-        print(user +" richtig ------------------")
+        
     else:
-        print(user +" falsch ------------------")
-        print(password)
-        print(type(user))
-        print(type(password))
+        
         return json.dumps({"token":""}, indent = 4)
 
 @app.route('/registrieren', methods=['POST'])
