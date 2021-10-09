@@ -1,27 +1,49 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-from main import Processe
-import json
+from flask_login import LoginManager, login_user
+from Auth import auth
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-
-
+app.register_blueprint(auth)
+login_manager = LoginManager()
+login_manager.init_app(app)
 @app.route('/')
 @cross_origin()
 def index():
     return str(request.form.get('fname'))
 
-@app.route('/login', methods=['POST'])
+@auth.route('/login', methods=['GET', 'POST'])
+@app.route('/login')
 @cross_origin()
 def login():
-    password = request.form.get('password')
-    user = request.form.get('user')
-    if Processe().login_check(user,password):
-        return json.dumps({"token":user}, indent = 4)
-    else:
-        return json.dumps({"token":""}, indent = 4)
+    # if Flask.request.method == 'GET':
+    return '''
+            <form action='login' method='POST'>
+            <input type='text' name='email' id='email' placeholder='email'/>
+            <input type='password' name='password' id='password' placeholder='password'/>
+            <input type='submit' name='submit'/>
+            </form>
+            '''
+
+    email = Flask.request.form['email']
+    if Flask.request.form['password'] == users[email]['password']:
+        user = User()
+        user.id = email
+        login_user(user)
+        return Flask.redirect(Flask.url_for('protected'))
+
+    return 'Bad login'
+
+
+# @auth.route('/protected')
+# @flask_login.login_required
+# def protected():
+#     return 'Logged in as: ' + flask_login.current_user.id
+
+
+
 
 @app.route('/registrieren')
 def registrieren():
