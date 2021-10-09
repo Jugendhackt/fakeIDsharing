@@ -68,7 +68,12 @@ class Processe:
         self.conn.execute(sql)
         row = self.conn.fetchone()[0]
         return self.profilelist_to_dic(row)
-        
+
+    def get_ID_from_username(self, username):
+        return 1
+
+    def set_ID_to_username(self, username, ID):
+        print(username + " --> "+ ID)
 
 x = Processe()
 print(x.login_check("A", "1234"))
