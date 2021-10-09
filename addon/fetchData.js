@@ -1,8 +1,13 @@
     var token = chrome.storage.local.get(['token'], function(result) {
         console.log('Value currently is ' + result);
       
+    var resultToken = result.token
+    if (resultToken == null) {
+        resultToken = "default"
+    }
+
     console.log(result)
-    fetch(`http://127.0.0.1:5000/${result.token}/info`)
+    fetch(`http://127.0.0.1:5000/${resultToken}/info`)
         .then(response => response.json())
         .then(data => fillIn(data));
 })
