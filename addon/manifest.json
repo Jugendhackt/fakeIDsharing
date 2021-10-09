@@ -11,10 +11,10 @@
         "persistent": false
     },
     "icons": {
-        "16": "/img/logo16.ico",
-        "32": "/img/logo32.ico",
-        "48": "/img/logo48.ico",
-        "128": "/img/logo128.ico"
+        "16": "/img/logo16.png",
+        "32": "/img/logo32.png",
+        "48": "/img/logo48.png",
+        "128": "/img/logo128.png"
     },
     "permissions": [
         "tabs",
