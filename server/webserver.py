@@ -15,6 +15,8 @@ def index():
     return str(request.form.get('fname'))
 
 @auth.route('/login', methods=['GET', 'POST'])
+@app.route('/login')
+@cross_origin()
 def login():
     # if Flask.request.method == 'GET':
     return '''
