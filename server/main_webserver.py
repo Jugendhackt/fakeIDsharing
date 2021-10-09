@@ -45,13 +45,14 @@ def info(name):
         datei = Processe().random_choose_profile()
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
-    elif request.method == 'POST':
+    elif request.method == 'GET':
         print(name)
         datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name)))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
     else:
         datei = Processe().random_choose_profile()
+        print(datei)
         Processe().set_ID_to_username(str(name),datei["ID"])
         datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name)))
         datei.update({"token":name})
