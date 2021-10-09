@@ -19,7 +19,7 @@ def index():
 def login():
     password = request.form.get('password')
     user = request.form.get('username')
-    if not Processe().login_check(user,password):
+    if Processe().login_check(str(user),str(password)):
         return json.dumps({"token":user}, indent = 4)
     else:
         return json.dumps({"token":""}, indent = 4)
