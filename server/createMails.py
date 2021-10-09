@@ -38,12 +38,12 @@ class getMail:
         get_link = re.findall(r"https://anonbox.net/[a-z0-9]*/[a-z0-9]*", response)
         print(get_link[0])
 
-        remove = r"<span style= 'display: none class=foobar>[a-zA-Z0-9\-]*</span>"
+        remove = r"<span style='display: none' class=foobar>[a-zA-Z0-9\-]*</span>"
         remove2 = "<span></span>"
         result = re.sub(remove, '', response)
         result = re.sub(remove2, '', result)
-        get_mail = re.findall(r"[a-z0-9]*wgbn6.anonbox.net", result)
-        print(str(get_mail) + " Regex")
+        get_mail = re.findall(r"[a-z0-9]*@wgbn6.anonbox.net", result)
+        print(get_mail[0])
 
 
         Email = 'test'
