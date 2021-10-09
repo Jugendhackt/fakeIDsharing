@@ -1,7 +1,11 @@
-fetch('http://127.0.0.1:5000/fhwhjjh/info')
-    .then(response => response.json())
-    .then(data => fillIn(data));
-
+    var token = chrome.storage.local.get(['token'], function(result) {
+        console.log('Value currently is ' + result);
+      
+    console.log(result)
+    fetch(`http://127.0.0.1:5000/${result.token}/info`)
+        .then(response => response.json())
+        .then(data => fillIn(data));
+})
 function fillIn(jsonData) {
     document.getElementById("fakename").value = jsonData["name"];
     document.getElementById("birthday").value = jsonData["Geburtsdatum"];

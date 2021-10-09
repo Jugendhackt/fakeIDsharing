@@ -13,6 +13,8 @@ function login(event) {
 .then(response => response.json())
 .then(data => {
   console.log('Success:', data);
+  window.location.replace("../start.html");
+  chrome.storage.local.set({token: document.getElementById("username").value});
 })
 .catch((error) => {
   console.error('Error:', error);
@@ -20,4 +22,3 @@ function login(event) {
 }
 
 document.getElementById("loginForm").addEventListener("submit", login)
-
