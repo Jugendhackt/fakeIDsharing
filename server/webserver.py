@@ -51,9 +51,12 @@ def protected():
 def registrieren():
     return ""
 
+
+
 @app.route('/info')
+@cross_origin()
 def info():
-    return ""
+    return json.dumps(Processe().random_choose_profile(), indent = 4)
 
 if __name__ == "__main__":
     app.run(debug=True)
