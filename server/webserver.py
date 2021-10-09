@@ -1,7 +1,8 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_user, login_required, current_user
 from Auth import auth
+import json
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -18,17 +19,18 @@ def index():
 @app.route('/login')
 @cross_origin()
 def login():
-    # if Flask.request.method == 'GET':
-    return '''
-            <form action='login' method='POST'>
-            <input type='text' name='email' id='email' placeholder='email'/>
-            <input type='password' name='password' id='password' placeholder='password'/>
-            <input type='submit' name='submit'/>
-            </form>
-            '''
-
-    email = Flask.request.form['email']
-    if Flask.request.form['password'] == users[email]['password']:
+    if request.method == 'GET':
+        return '''
+                <form action='login' method='POST'>
+                <input type='text' name='email' id='email' placeholder='email'/>
+                <input type='password' name='password' id='password' placeholder='password'/>
+                <input type='submit' name='submit'/>
+                </form>
+                '''
+    
+    email = request.form['email']
+    
+    if request.form['password'] == users[email]['password']:
         user = User()
         user.id = email
         login_user(user)
@@ -37,10 +39,10 @@ def login():
     return 'Bad login'
 
 
-# @auth.route('/protected')
-# @flask_login.login_required
-# def protected():
-#     return 'Logged in as: ' + flask_login.current_user.id
+@auth.route('/protected')
+@login_required
+def protected():
+    return 'Logged in as: ' + current_user.id
 
 
 
