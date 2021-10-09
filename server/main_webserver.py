@@ -24,6 +24,9 @@ def login():
         print(user +" richtig ------------------")
     else:
         print(user +" falsch ------------------")
+        print(password)
+        print(type(user))
+        print(type(password))
         return json.dumps({"token":""}, indent = 4)
 
 @app.route('/registrieren', methods=['POST'])

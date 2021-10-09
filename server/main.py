@@ -14,7 +14,6 @@ class Processe:
 
     def login_check(self, user, password)->bool: # Fertig (ohne Verschlüsselung)
         sql = """SELECT password FROM Accounts WHERE username = '{}'""".format(user)
-        print(sql)
         self.conn.execute(sql)
         rows = self.conn.fetchall()
         if len(rows) == 1 and rows[0][0]==password:
@@ -72,6 +71,6 @@ class Processe:
         
 
 x = Processe()
-#print(x.login_check("Fr", "Hallo"))
+print(x.login_check("A", "1234"))
 #d = x.registrieren("ww","passwort")
-print(x.random_choose_profile())
+#print(x.random_choose_profile())
