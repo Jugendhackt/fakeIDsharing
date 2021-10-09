@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.arrange-vertically {
+}
+
+.arrange-vertically > * {
+    display:table-row; 
+}
+.table {
+    display: table;
+ }
