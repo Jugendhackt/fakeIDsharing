@@ -1,3 +1,4 @@
+from os import name
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from main import Processe
@@ -29,10 +30,13 @@ def registrieren():
 
 
 
-@app.route('/info')
+@app.route('/<name>/info')
 @cross_origin()
-def info():
-    return json.dumps(Processe().random_choose_profile(), indent = 4)
+def info(name):
+    print(name)
+    datei = Processe().random_choose_profile()
+    datei.update({"token":name})
+    return json.dumps(datei, indent = 4)
 
 if __name__ == "__main__":
     app.run(debug=True)
