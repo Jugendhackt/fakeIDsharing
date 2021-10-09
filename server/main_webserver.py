@@ -41,7 +41,11 @@ def registrieren():
 @app.route('/<name>/info', methods = ['POST', 'GET'])
 @cross_origin()
 def info(name):
-    if request.method == 'GET':
+    if str(name) == "default":
+        datei = Processe().random_choose_profile()
+        datei.update({"token":name})
+        return json.dumps(datei, indent = 4)
+    elif request.method == 'POST':
         print(name)
         datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name)))
         datei.update({"token":name})
