@@ -66,11 +66,17 @@ class Processe:
         sql = """SELECT * FROM anonymprofile WHERE ID = '{}'""".format(id)
         print(sql)
         self.conn.execute(sql)
-        row = self.conn.fetchone()[0]
+        row = self.conn.fetchall()[0]
+        print(row)
         return self.profilelist_to_dic(row)
 
     def get_ID_from_username(self, username):
-        return 1
+        sql = """SELECT ID FROM connect WHERE username = '{}'""".format(username)
+        print(sql)
+        self.conn.execute(sql)
+        row = self.conn.fetchone()[0]
+        print(row)
+        return row
 
     def set_ID_to_username(self, username, ID):
         print(username + " --> "+ ID)

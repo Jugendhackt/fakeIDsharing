@@ -48,7 +48,7 @@ def info(name):
         return json.dumps(datei, indent = 4)
     else:
         datei = Processe().random_choose_profile()
-        Processe().set_ID_to_username(str(name),int(datei["ID"]))
+        Processe().set_ID_to_username(str(name),datei["ID"])
         return "Profiel geändert"
 
 if __name__ == "__main__":
