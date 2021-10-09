@@ -23,9 +23,15 @@ def login():
     else:
         return json.dumps({"token":""}, indent = 4)
 
-@app.route('/registrieren')
+@app.route('/registrieren', methods=['POST'])
+@cross_origin()
 def registrieren():
-    return ""
+    password = request.form.get('password')
+    user = request.form.get('user')
+    if Processe().registrieren(user,password):
+        return "Registriert"
+    else:
+        return "ERROR"
 
 
 
