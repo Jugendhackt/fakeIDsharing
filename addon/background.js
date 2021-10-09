@@ -1,9 +1,5 @@
 // background.js
 
-chrome.runtime.onInstalled.addListener((reason) => {
-    if (reason === chrome.runtime.OnInstalledReason.INSTALL) {
-      chrome.tabs.create({
-        url: 'onboarding.html'
-      });
-    }
+chrome.browserAction.onClicked.addListener(function(tab) {
+    chrome.tabs.create({ url: chrome.extension.getURL('index.html'), selected: true });
   });
