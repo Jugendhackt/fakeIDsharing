@@ -38,7 +38,7 @@ def registrieren():
 
 
 
-@app.route('/<name>/info', methods = ['POST', 'GET'])
+@app.route('/<name>/info', methods = ['POST', 'GET']) #fast fertig
 @cross_origin()
 def info(name):
     if str(name) == "default":
