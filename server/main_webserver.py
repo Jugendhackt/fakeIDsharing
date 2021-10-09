@@ -20,7 +20,7 @@ def login():
     password = request.form.get('password')
     user = request.form.get('username')
     if Processe().login_check(str(user),str(password)):
-        return json.dumps({"token":user}, indent = 4)
+        return json.dumps({"token":str(user)}, indent = 4)
     else:
         return json.dumps({"token":""}, indent = 4)
 
