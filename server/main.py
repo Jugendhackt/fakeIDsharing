@@ -1,4 +1,5 @@
 import sqlite3
+import random
 
 class Processe:
     def __init__(self) -> None:
@@ -36,15 +37,41 @@ class Processe:
             self.db.commit()
             return True
 
-    def create_profile(self):
-        pass
+    def create_profile(self, data_profile):
 
-    def random_choose_profile(self):
-        pass
+        sql = """INSERT INTO anonymprofile VALUES('{Email}', '{Name}','{Geburtsdatum}', '{Addresse}','{Geschlecht}', '{Telefon}')""".format(data_profile)
+        print(sql)
+        self.conn.execute(sql)
+        self.db.commit()
+        
+
+    def random_choose_profile(self)->dict: # Fertig
+        sql = """SELECT * FROM anonymprofile"""
+        self.conn.execute(sql)
+        rows = self.conn.fetchall()
+        row = random.choice(rows)
+        print(row)
+        return self.profilelist_to_dic(row)
+
+    def profilelist_to_dic(self,row):
+        return {"id":row[0],
+                "Email":row[1],
+                "name":row[2],
+                "Geburtsdatum":row[3],
+                "Addresse":row[4],
+                "Geschlecht":row[5],
+                "Telefon":row[6]}
+        
 
     def get_profile_from_ID(self, id):
-        pass
+        sql = """SELECT * FROM anonymprofile WHERE ID = '{}'""".format(id)
+        print(sql)
+        self.conn.execute(sql)
+        row = self.conn.fetchone()[0]
+        return self.profilelist_to_dic(row)
+        
 
 x = Processe()
-print(x.login_check("Fr", "Hallo"))
-d = x.registrieren("ww","passwort")
+#print(x.login_check("Fr", "Hallo"))
+#d = x.registrieren("ww","passwort")
+print(x.random_choose_profile())
