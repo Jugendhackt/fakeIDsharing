@@ -4,6 +4,15 @@ body {
     zoom: 150%;
 }
 
+input {
+    width: 300px;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
 .arrange-vertically {
 }
 
