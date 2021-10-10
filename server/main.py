@@ -71,12 +71,13 @@ class Processe:
 
         
 
-    def random_choose_profile(self)->dict: # Fertig
+    def random_choose_profile(self, username)->dict: # Fertig
         sql = """SELECT * FROM anonymprofile"""
         self.conn.execute(sql)
         rows = self.conn.fetchall()
         row = random.choice(rows)
         print(row)
+        sql = "INSERT INTO connect (username, ID) VALUES('{}', '{})'".format(row[0], username)
         return self.profilelist_to_dic(row)
 
     def profilelist_to_dic(self,row):

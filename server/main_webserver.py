@@ -42,7 +42,7 @@ def registrieren():
 @cross_origin()
 def info(name):
     if str(name) == "default":
-        datei = Processe().random_choose_profile()
+        datei = Processe().random_choose_profile(str(name))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
     elif request.method == 'GET':
