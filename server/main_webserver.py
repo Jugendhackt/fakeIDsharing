@@ -58,21 +58,21 @@ def all(name):
 
 @app.route('/<name>/info', methods = ['POST', 'GET']) #fast fertig
 @cross_origin()
-def info(name, id):
+def info(name):
     if str(name) == "default":
         datei = Processe().random_choose_profile(str(name))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
     elif request.method == 'GET':
         print(name)
-        datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name), id))
+        datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name)))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
     else:
         datei = Processe().random_choose_profile()
         print(datei)
         Processe().set_ID_to_username(str(name),datei["ID"])
-        datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name), datei["ID"]))
+        datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name)))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
 
