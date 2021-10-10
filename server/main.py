@@ -36,6 +36,9 @@ class Processe:
             print(sql)
             self.conn.execute(sql)
             self.db.commit()
+            create_profile()
+            create_profile()
+            create_profile()
             return True
 
     def create_profile(self):
