@@ -34,3 +34,8 @@ a {
     display:table-cell;
 
 }
+
+img {
+    display: block;
+    margin: auto;
+}

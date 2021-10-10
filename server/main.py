@@ -36,6 +36,7 @@ class Processe:
             print(sql)
             self.conn.execute(sql)
             self.db.commit()
+            Processe.random_choose_profile(self, user)
             Processe.create_profile(self)
             Processe.create_profile(self)
             Processe.create_profile(self)
@@ -77,7 +78,10 @@ class Processe:
         rows = self.conn.fetchall()
         row = random.choice(rows)
         print(row)
-        sql = "INSERT INTO connect (username, ID) VALUES('{}', '{})'".format(row[0], username)
+        sql = "INSERT INTO connect (username, ID) VALUES('{}', '{}')".format(username, row[0] )
+        print(sql)
+        self.conn.execute(sql)
+        self.db.commit()
         return self.profilelist_to_dic(row)
 
     def profilelist_to_dic(self,row):
