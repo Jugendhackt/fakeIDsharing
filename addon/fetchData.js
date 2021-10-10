@@ -7,25 +7,27 @@
     }
 
     console.log(result)
-    //fetch(`http://127.0.0.1:5000/${resultToken}/info`)
-       // .then(response => response.json())
-        //.then(data => fillIn(data));
 
-    fetch(`http://127.0.0.1:5000/${resultToken}/info`, {
-        method: 'POST', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-         },
-        body: JSON.stringify(resultToken, data["id"]),
-        })
+
+ fetch(`http://127.0.0.1:5000/${resultToken}/info`)
         .then(response => response.json())
-        .then(data => {
-         console.log('Success:', data);
-         })
-      .catch((error) => {
-          console.error('Error:', error);
-         });
-})
+        .then(data => fillIn(data));
+
+        // fetch(`http://127.0.0.1:5000/${resultToken}/info`, {
+        //     method: 'POST', // or 'PUT'
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //      },
+        //     body: JSON.stringify(resultToken, data["id"]),
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //      console.log('Success:', data);
+        //      })
+        //   .catch((error) => {
+        //       console.error('Error:', error);
+        //      });
+            })
 function fillIn(jsonData) {
     document.getElementById("fakename").value = jsonData["name"];
     document.getElementById("birthday").value = jsonData["Geburtsdatum"];
