@@ -103,8 +103,8 @@ class Processe:
         print(row)
         return self.profilelist_to_dic(row)
 
-    def get_ID_from_username(self, username):
-        sql = """SELECT ID FROM connect WHERE username = '{}'""".format(username)
+    def get_ID_from_username(self, username, id):
+        sql = """SELECT ID FROM connect WHERE username = '{}' AND id = '{}'""".format(username, id)
         print(sql)
         self.conn.execute(sql)
         row = self.conn.fetchone()[0]
