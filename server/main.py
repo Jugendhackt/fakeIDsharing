@@ -108,8 +108,8 @@ class Processe:
     def set_ID_to_username(self, username, ID):
         print(username + " --> "+ ID)
 
-x = Processe()
-x.create_profile()
+# x = Processe()
+# x.create_profile()
 
 # print(x.login_check("A", "1234"))
 #d = x.registrieren("ww","passwort")
