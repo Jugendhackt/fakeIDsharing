@@ -6,7 +6,7 @@ import createMails
 class Processe:
     def __init__(self) -> None:
         try:
-            self.db = sqlite3.connect('server/data.db')
+            self.db = sqlite3.connect('data.db')
             self.conn = self.db.cursor()
             print("Succesfull")
 
@@ -36,9 +36,9 @@ class Processe:
             print(sql)
             self.conn.execute(sql)
             self.db.commit()
-            create_profile()
-            create_profile()
-            create_profile()
+            Processe.create_profile()
+            Processe.create_profile()
+            Processe.create_profile()
             return True
 
     def create_profile(self):
