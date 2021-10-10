@@ -38,13 +38,13 @@ def registrieren():
 
 @app.route('/<name>/new', methods = ['POST', 'GET']) #fast fertig
 @cross_origin()
-def info(name):
+def new(name):
         datei = Processe().random_choose_profile(str(name))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
 
 
-        
+
 @app.route('/<name>/info', methods = ['POST', 'GET']) #fast fertig
 @cross_origin()
 def info(name):
