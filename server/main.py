@@ -29,16 +29,16 @@ class Processe:
         self.conn.execute(sql)
         rows = self.conn.fetchone()[0]
         print(rows)
-        if rows >0:
+        if rows != 0:
             return False
         else:
             sql = """INSERT INTO Accounts VALUES('{}', '{}')""".format(user, password)
             print(sql)
             self.conn.execute(sql)
             self.db.commit()
-            # Processe.create_profile()
-            # Processe.create_profile()
-            # Processe.create_profile()
+            Processe.create_profile(self)
+            Processe.create_profile(self)
+            Processe.create_profile(self)
             return True
 
     def create_profile(self):
