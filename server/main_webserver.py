@@ -30,7 +30,8 @@ def login():
 @cross_origin()
 def registrieren():
     password = request.form.get('password')
-    user = request.form.get('user')
+    user = request.form.get('username')
+    print(user, password)
     if Processe().registrieren(user,password):
         return "Registriert"
     else:
