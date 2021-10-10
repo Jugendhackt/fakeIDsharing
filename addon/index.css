@@ -3,3 +3,13 @@ body {
     margin-left: 40%;
     zoom: 150%;
 }
+
+.arrange-vertically {
+}
+
+.arrange-vertically > * {
+    display:table-row; 
+}
+.table {
+    display: table;
+ }
