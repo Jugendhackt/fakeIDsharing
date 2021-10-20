@@ -2,14 +2,9 @@
         console.log('Value currently is ' + result);
       
     var resultToken = result.token
-    if (resultToken == null) {
-        resultToken = "default"
-    }
-
-    console.log(result)
-
-
- fetch(`http://127.0.0.1:5000/${resultToken}/info`)
+    console.log(resultToken)
+    if (resultToken != null) {
+        fetch(`http://127.0.0.1:5000/${resultToken}/info`)
         .then(response => response.json())
         .then(data => fillIn(data));
 
@@ -27,7 +22,12 @@
         //   .catch((error) => {
         //       console.error('Error:', error);
         //      });
-            })
+            }
+    },
+
+
+
+)
 function fillIn(jsonData) {
     document.getElementById("fakename").value = jsonData["name"];
     document.getElementById("birthday").value = jsonData["Geburtsdatum"];

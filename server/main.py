@@ -6,7 +6,7 @@ import createMails
 class Processe:
     def __init__(self) -> None:
         try:
-            self.db = sqlite3.connect('server/data.db')
+            self.db = sqlite3.connect('data.db')
             self.conn = self.db.cursor()
             print("Succesfull")
 

@@ -13,8 +13,15 @@ function login(event) {
 .then(response => response.json())
 .then(data => {
   console.log('Success:', data);
-  window.location.replace("../start.html");
+  console.log(data)
+  //window.location.replace("../start.html");
   chrome.storage.local.set({token: document.getElementById("username").value});
+  if (data["token"] == "") {
+    console.log("Login Failed")
+  } else {
+    window.location.replace("../start.html");
+  }
+
 })
 .catch((error) => {
   console.error('Error:', error);

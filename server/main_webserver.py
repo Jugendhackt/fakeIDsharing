@@ -22,7 +22,6 @@ def login():
     if Processe().login_check(str(user),str(password)):
         return json.dumps({"token":str(user)}, indent = 4)
     else:
-        
         return json.dumps({"token":""}, indent = 4)
 
 
