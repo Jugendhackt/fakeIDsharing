@@ -1,39 +1,53 @@
-    var token = chrome.storage.local.get(['token'], function(result) {
-        console.log('Value currently is ' + result);
-      
-    var resultToken = result.token
-    console.log(resultToken)
-    if (resultToken != null) {
+var resultToken = "";
+
+    chrome.storage.local.get(['token'], function(result) {
+        resultToken = result.token
+        console.log('Value currently is ' + resultToken);
+
+
         fetch(`http://127.0.0.1:5000/${resultToken}/info`)
         .then(response => response.json())
-        .then(data => fillIn(data));
+        .then(data => {
+            var dataParsed = JSON.parse(JSON.stringify(data))
+             saveData(dataParsed);
+             fillIn();
+        })
+      });
 
-        // fetch(`http://127.0.0.1:5000/${resultToken}/info`, {
-        //     method: 'POST', // or 'PUT'
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //      },
-        //     body: JSON.stringify(resultToken, data["id"]),
-        //     })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //      console.log('Success:', data);
-        //      })
-        //   .catch((error) => {
-        //       console.error('Error:', error);
-        //      });
-            }
-    },
+      function saveData(jsonData) {
+        chrome.storage.local.set({fakename: jsonData["name"]});
+        chrome.storage.local.set({birthdate: jsonData["Geburtsdatum"]});
+        chrome.storage.local.set({gender: jsonData["Geschlecht"]});
+        chrome.storage.local.set({address: jsonData["Addresse"]});
+        chrome.storage.local.set({email: jsonData["Email"]});
+        chrome.storage.local.set({phone: jsonData["Telefon"]});
+        chrome.storage.local.set({email_link: jsonData["Email_Webaddresse"]});
+        
+    }
+    
+    function fillIn() {
+        chrome.storage.local.get(['fakename'], function(value) {
+            document.getElementById("fakename").value = value.fakename
+        })
+        chrome.storage.local.get(['birthdate'], function(value) {
+            document.getElementById("birthday").value = value.birthdate
+        })
+        chrome.storage.local.get(['gender'], function(value) {
+            document.getElementById("gender").value = value.gender
+        })
+        chrome.storage.local.get(['address'], function(value) {
+            document.getElementById("address").value = value.address
+        })
+        chrome.storage.local.get(['email'], function(value) {
+            document.getElementById("email").value = value.email
+        })
+        chrome.storage.local.get(['phone'], function(value) {
+            document.getElementById("phone").value = value.phone
+        })
+        chrome.storage.local.get(['email_link'], function(value) {
+            document.getElementById("email_link").value = value.email_link
+        })
+    
+    }
 
-
-
-)
-function fillIn(jsonData) {
-    document.getElementById("fakename").value = jsonData["name"];
-    document.getElementById("birthday").value = jsonData["Geburtsdatum"];
-    document.getElementById("gender").value = jsonData["Geschlecht"];
-    document.getElementById("address").value = jsonData["Addresse"];
-    document.getElementById("email").value = jsonData["Email"];
-    document.getElementById("phone").value = jsonData["Telefon"];
-    document.getElementById("lol").value = jsonData["Email_Webaddresse"];
-}
+    

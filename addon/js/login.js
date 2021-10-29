@@ -15,7 +15,10 @@ function login(event) {
   console.log('Success:', data);
   console.log(data)
   //window.location.replace("../start.html");
-  chrome.storage.local.set({token: document.getElementById("username").value});
+  chrome.storage.local.set({token: data.token});
+  chrome.storage.local.get(['token'], function(result) {
+    console.log('Value currently is ' + result.token);
+  });
   if (data["token"] == "") {
     console.log("Login Failed")
   } else {
