@@ -50,7 +50,7 @@ def new(name):
 @app.route('/<name>/all', methods = ['GET']) #fast fertig
 @cross_origin()
 def all(name):
-    datei = irgendwas().irgendwas
+    datei = Processe().get_all_profiles(str(name))
     return json.dumps(datei, indent = 4)
 
 
@@ -59,6 +59,7 @@ def all(name):
 @cross_origin()
 def info(name):
     if str(name) == "default":
+        print("default")
         datei = Processe().random_choose_profile(str(name))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
@@ -74,6 +75,17 @@ def info(name):
         datei = Processe().get_profile_from_ID(Processe().get_ID_from_username(str(name)))
         datei.update({"token":name})
         return json.dumps(datei, indent = 4)
+
+@app.route('/<name>/<id>/profile', methods = ['GET']) #fast fertig
+@cross_origin()
+def profile(name, id):
+    if request.method == 'GET':
+        print(name)
+        print(id)
+        datei = Processe().get_profile_from_ID(str(id))
+        datei.update({"token":name})
+        return json.dumps(datei, indent = 4)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

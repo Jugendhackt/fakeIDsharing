@@ -2,6 +2,8 @@ import sqlite3
 import random
 import names
 import createMails
+import itertools
+from collections import defaultdict
 
 class Processe:
     def __init__(self) -> None:
@@ -110,6 +112,48 @@ class Processe:
         row = self.conn.fetchone()[0]
         print(row)
         return row
+
+    def get_all_profiles(self, username):
+        # id_list = []
+        # sql = """SELECT ID FROM connect WHERE username = '{}'""".format(username)
+        # print(sql)
+        # self.conn.execute(sql)
+        # row = self.conn.fetchone()[0]
+        # print(row)
+        # return row
+        
+        def dict_factory(cursor, row):
+            d = {}
+            for idx, col in enumerate(cursor.description):
+              d[col[0]] = row[idx]
+            return d
+        qu= 'select * from connect'
+        self.conn.row_factory = dict_factory
+        self.conn.execute(qu)
+        row = self.conn.fetchall()
+        print(row)
+
+        key1 = 'username'
+        username_list = [a_dict[key1] for a_dict in row]
+        print(username_list)
+
+        key2 = 'ID'
+        id_list = [a_dict[key2] for a_dict in row]
+        print(id_list)
+
+        i = 0
+        id_list_return = []
+        for name in username_list:
+            if(name == username):
+                id_list_return.append(id_list[i])
+                i += 1
+            else:
+                i += 1
+        print(id_list_return)
+        return id_list_return
+
+
+
 
     def set_ID_to_username(self, username, ID):
         print(username + " --> "+ ID)
