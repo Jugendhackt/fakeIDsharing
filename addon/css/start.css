@@ -8,6 +8,10 @@ input {
     width: 300px;
 }
 
+select {
+    width: 300px;
+}
+
 img {
     display: block;
     margin: auto;
@@ -17,8 +21,8 @@ img {
 }
 
 .arrange-vertically > * {
-    display:table-row; 
+    display: table-row;
 }
 .table {
     display: table;
- }
+}

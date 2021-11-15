@@ -1,22 +1,30 @@
 <html>
     <head>
         <title>Log In</title>
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/index.css" />
     </head>
     <body>
-    <img src="img/logo.PNG" height=200px>
-    <div class="arrange-vertically">
-    <form id="loginForm" action="http://127.0.0.1:5000/login" method="post"> 
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="lname">Passwort:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Login">
-    </form>
-    </div>
-      <div class="arrange-vertically">
-      <a href="register.html">Register</a>
-    </div>
-      <script src="js/login.js"></script>
+        <img src="img/logo.PNG" height="200px" />
+        <div class="arrange-vertically">
+            <form
+                id="loginForm"
+                action="http://127.0.0.1:5000/login"
+                method="post"
+            >
+                <label for="username">Username:</label><br />
+                <input type="text" id="username" name="username" /><br />
+                <label for="lname">Passwort:</label><br />
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                /><br /><br />
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+        <div class="arrange-vertically">
+            <a href="register.html">Register</a>
+        </div>
+        <script src="js/login.js"></script>
     </body>
 </html>

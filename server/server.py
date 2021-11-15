@@ -17,11 +17,10 @@ maxRows = conn.execute("SELECT COUNT(*) FROM Accounts").fetchone()
 mRoInt = functools.reduce(lambda sub, ele: sub * 10 + ele, maxRows)
 
 
-
-
 class request:
-   ranID = random.randint(0, mRoInt)
-   print(rows[ranID])
-    
+    ranID = random.randint(0, mRoInt)
+    print(rows[ranID])
+
+
 print(request.ranID)
 conn.close()

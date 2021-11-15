@@ -8,9 +8,8 @@ body {
 }
 
 .arrange-vertically > * {
-    display:table-row; 
+    display: table-row;
 }
 .table {
     display: table;
- }
-
+}

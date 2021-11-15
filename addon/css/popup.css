@@ -14,25 +14,24 @@ a {
     background: #d9d9d9;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-  }
+}
 
 .arrange-vertically {
 }
 
 .arrange-vertically > * {
-    display:table-row; 
+    display: table-row;
 }
 .table {
     display: table;
- }
+}
 
- .arrange-horizontally {
-    overflow-x:scroll;
+.arrange-horizontally {
+    overflow-x: scroll;
 }
 
 .arrange-horizontally > * {
-    display:table-cell;
-
+    display: table-cell;
 }
 
 img {
