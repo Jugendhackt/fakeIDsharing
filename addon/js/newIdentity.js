@@ -12,22 +12,25 @@ chrome.storage.local.get(["token"], function (result) {
             .then((response) => response.json())
             .then((data) => {
                 var dataParsed = JSON.parse(JSON.stringify(data));
-                chrome.storage.local.set({ id: data.id });
-                saveData(dataParsed);
-                fillIn();
-                $('#mySelect').load(document.URL +  ' #selectId');
-
-                for (const id of idList) {
-                    fetch(`http://127.0.0.1:5000/${resultToken}/${id}/profile`)
+                if (idList.includes(data["id"]) === false) {
+                    fetch(
+                        `http://127.0.0.1:5000/${resultToken}/${data["id"]}/profile`
+                    )
                         .then((response) => response.json())
                         .then((data) => {
-                            //console.log(data["id"])
-        
+                            console.log("new id yay");
+                            chrome.storage.local.set({ id: data.id });
+                            saveData(dataParsed);
+                            fillIn();
                             var option = document.createElement("option");
                             option.setAttribute("value", data["id"]);
                             option.text = data["name"];
                             selectList.appendChild(option);
+                            let element = document.getElementById("mySelect");
+                            element.value = data["id"];
+                            idList.push(data["id"]);
                         });
+                } else {
                 }
             });
     }
@@ -48,7 +51,6 @@ chrome.storage.local.get(["token"], function (result) {
         chrome.storage.local.set({ email: jsonData["Email"] });
         chrome.storage.local.set({ phone: jsonData["Telefon"] });
         chrome.storage.local.set({ email_link: jsonData["Email_Webaddresse"] });
-        idList.push(jsonData["id"]);
     }
 
     function fillIn() {

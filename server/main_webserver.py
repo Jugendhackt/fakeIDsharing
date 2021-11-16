@@ -45,7 +45,7 @@ def new(name):
         print(name)
         datei = Processe().random_choose_profile(str(name))
 
-        datei.update({"token": name})
+        #datei.update({"token": name})
         return json.dumps(datei, indent=4)
 
 
