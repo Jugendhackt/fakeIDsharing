@@ -22,6 +22,7 @@ function login(event) {
             if (data["token"] == "") {
                 console.log("Login Failed");
             } else {
+                chrome.storage.local.set({ login_state: true });
                 window.location.replace("../start.html");
             }
         })

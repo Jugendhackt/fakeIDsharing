@@ -1,3 +1,14 @@
+let loginState;
+
+chrome.storage.local.get(["login_state"], function (result) {
+    loginState = result.login_state;
+    console.log(loginState)
+
+    if (loginState === true) {
+        fillIn();
+    }
+});
+
 function fillIn() {
     chrome.storage.local.get(["fakename"], function (value) {
         document.getElementById("fakename").value = value.fakename;
@@ -19,8 +30,3 @@ function fillIn() {
         document.getElementById("phone").value = value.phone;
     });
 }
-
-window.onload = function () {
-    console.log("working");
-    fillIn();
-};
